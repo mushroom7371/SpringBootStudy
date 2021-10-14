@@ -23,11 +23,11 @@ public class SampleController {
 	StudyService StudyService; 
 	
 	@RequestMapping(value="/")	//들어온 요청을 특정 메서드와 매핑하기 위해서 사용
-	@ResponseBody				//java 객체를 HTTP 요청의 body 내용으로 매핑하는 역할. VO 객체를 JSON으로 바꿔서 HTTP body에 담는 스프링 어노테이션
+ 	@ResponseBody //java 객체를 HTTP 요청의 body 내용으로 매핑하는 역할. VO 객체를 JSON으로 바꿔서 HTTP body에 담는 스프링 어노테이션
     public List<StudyVo> sampleHome(@ModelAttribute("searchVO") StudyVo Vo, ModelMap model) throws Exception {
 		
 		List<StudyVo> eList = StudyService.selectStudyMember(Vo);
-		
+
 		return eList;    
     }
 }
