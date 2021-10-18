@@ -26,10 +26,36 @@ public class IndexController {
 	//매핑을 통하여 url이 /로 들어오면 실행되는 메서드
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(){
-		System.out.println("controller start");	//컨트롤러로 잘 들어오는지 확인용 출력
-		
+
 		return "index";	//localhost로 들어오면 바로 jsp를 띄우도록 하였음. properties의 pre,suf fix로 경로를 지정한 index파일을 띄울수 있도록 함
 		//jsp 호출은 Contorller임...
+	}
+	
+	@RequestMapping(value = "/search.springboot", method = {RequestMethod.GET,RequestMethod.POST})
+	public ModelAndView search(){
+		ModelAndView mav = new ModelAndView();
+		
+		mav.setViewName("search");
+		
+		return mav;
+	}
+	
+	@RequestMapping(value = "/insert.springboot", method = {RequestMethod.GET,RequestMethod.POST})
+	public ModelAndView insert(){
+		ModelAndView mav = new ModelAndView();
+		
+		mav.setViewName("insert");
+		
+		return mav;
+	}
+	
+	@RequestMapping(value = "/insertR.springboot", method = {RequestMethod.GET,RequestMethod.POST})
+	public ModelAndView insertR(){
+		ModelAndView mav = new ModelAndView();
+		
+		mav.setViewName("search");
+		
+		return mav;
 	}
 
 	

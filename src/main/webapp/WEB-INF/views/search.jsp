@@ -6,12 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-<title>index</title>
+<script src='BootStudy/crudjs/functions.js'></script>
+<title>search page</title>
 </head>
 <body>
-	<h2>인덱스</h2>
-	
-	<input type='button' id='btnSearch' value='DB조회 테스트 버튼'/>
-
+	<h2>조회 페이지입니다.</h2>
 </body>
 </html>
