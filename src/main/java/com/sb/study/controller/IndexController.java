@@ -2,6 +2,8 @@ package com.sb.study.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
@@ -15,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import com.sb.study.vo.StudyVo;
+import com.sb.study.dao.StudyDao;
 import com.sb.study.service.StudyService;
 
 //@Controller					//MVC 패턴중 C, 사용자 요청을 처리한 후 지정된 뷰에 모델을 넘겨주는 역할을 함. 어노테이션을 통하여 해당클래스를 controller로 사용한다고 명시
@@ -22,6 +25,9 @@ import com.sb.study.service.StudyService;
 //@RestController를 사용하면 json으로 반환하기 때문에 jsp 화면이 호출되지 않음, Controller를 사용해야됨
 @Controller
 public class IndexController {
+	
+	@Autowired
+	StudyDao dao;
 	
 	//매핑을 통하여 url이 /로 들어오면 실행되는 메서드
 	@RequestMapping(value = "/", method = RequestMethod.GET)
@@ -49,9 +55,11 @@ public class IndexController {
 		return mav;
 	}
 	
-	@RequestMapping(value = "/insertR.springboot", method = {RequestMethod.GET,RequestMethod.POST})
-	public ModelAndView insertR(){
+ 	@RequestMapping(value = "/insertR.springboot", method = {RequestMethod.GET,RequestMethod.POST})
+	public ModelAndView insertR(StudyVo vo, HttpServletRequest req, HttpServletRequest resp){
 		ModelAndView mav = new ModelAndView();
+		
+		dao.insertStudyMember(vo);
 		
 		mav.setViewName("search");
 		

@@ -19,5 +19,11 @@ public class StudyServiceImpl implements StudyService {
 		// TODO Auto-generated method stub
 		return studyDao.selectStudyMember(vo);
 	}
+	
+	@Override
+	public List<StudyVo> insertStudyMember(StudyVo vo) {
+		// TODO Auto-generated method stub
+		return studyDao.insertStudyMember(vo);
+	}
 
 }

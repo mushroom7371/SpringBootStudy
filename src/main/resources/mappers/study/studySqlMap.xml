@@ -11,4 +11,9 @@
 		from
 				SPRINGBOOTSTUDY
 	</select>
+	
+	<insert id = "insertStudyMember" parameterType = "StudyVo">
+		insert into SPRINGBOOTSTUDY(SNAME, SPHONE, SAGE)
+		values(#{sName}, #{sPhone}, #{sAge})
+	</insert>
 </mapper>

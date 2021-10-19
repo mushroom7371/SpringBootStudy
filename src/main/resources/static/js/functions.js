@@ -16,7 +16,7 @@ crud.init = function(){
 			url     : './insertR.springboot',
 			data    : param,
 			success : function(resp){
-				alert('성공~!');
+				$('#index').load('./search.springboot');
 			}
 		})
 	})
