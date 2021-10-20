@@ -60,8 +60,6 @@ public class IndexController {
  	@RequestMapping(value = "/insertR.springboot", method = {RequestMethod.GET,RequestMethod.POST})
 	public void insertR(StudyVo vo, HttpServletRequest req, HttpServletRequest resp){
 		
-		dao = null;
-		
 		dao.insertStudyMember(vo);
 
 	}
