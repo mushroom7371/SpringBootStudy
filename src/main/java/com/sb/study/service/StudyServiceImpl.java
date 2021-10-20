@@ -21,8 +21,9 @@ public class StudyServiceImpl implements StudyService {
 	}
 	
 	@Override
-	public List<StudyVo> insertStudyMember(StudyVo vo) {
+	public int insertStudyMember(StudyVo vo) {
 		// TODO Auto-generated method stub
+
 		return studyDao.insertStudyMember(vo);
 	}
 

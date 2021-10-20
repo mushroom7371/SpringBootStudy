@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -55,15 +56,14 @@ public class IndexController {
 		return mav;
 	}
 	
+	@ExceptionHandler(Exception.class)
  	@RequestMapping(value = "/insertR.springboot", method = {RequestMethod.GET,RequestMethod.POST})
-	public ModelAndView insertR(StudyVo vo, HttpServletRequest req, HttpServletRequest resp){
-		ModelAndView mav = new ModelAndView();
+	public void insertR(StudyVo vo, HttpServletRequest req, HttpServletRequest resp){
+		
+		dao = null;
 		
 		dao.insertStudyMember(vo);
-		
-		mav.setViewName("search");
-		
-		return mav;
+
 	}
 
 	

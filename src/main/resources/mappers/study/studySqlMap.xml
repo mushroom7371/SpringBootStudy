@@ -12,7 +12,7 @@
 				SPRINGBOOTSTUDY
 	</select>
 	
-	<insert id = "insertStudyMember" parameterType = "StudyVo">
+	<insert id = "insertStudyMember">
 		insert into SPRINGBOOTSTUDY(SNAME, SPHONE, SAGE)
 		values(#{sName}, #{sPhone}, #{sAge})
 	</insert>

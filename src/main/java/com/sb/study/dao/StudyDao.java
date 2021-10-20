@@ -8,6 +8,7 @@ import com.sb.study.vo.StudyVo;
 
 @Mapper
 public interface StudyDao {
+
 	public List<StudyVo> selectStudyMember(StudyVo vo);
-	public List<StudyVo> insertStudyMember(StudyVo vo);
+	public int insertStudyMember(StudyVo vo);
 }
