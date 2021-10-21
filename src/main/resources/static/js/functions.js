@@ -5,6 +5,18 @@
 var crud = {};
 
 crud.init = function(){
+	$('#index #btnIndex').on('click', function(){
+		$('#index').load('./');
+	})
+	
+	$('#index #btnInsert').on('click', function(){
+		$('#index').load('./insert.springboot');
+	})
+
+	$('#index #btnSearch').on('click', function(){
+		$('#index').load('./search.springboot');
+	})
+	
 	
 	$('#crud #btnInsertR').on('click', function(){
 		

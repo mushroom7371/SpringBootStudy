@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <meta name='viewport' content='width=device-width, initial-scale=1.0'>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src='/js/functions.js'></script>
 <title>index</title>
 </head>
 <body>
@@ -19,12 +20,6 @@
 	</div>
 </body>
 <script>
-$('#index #btnInsert').on('click', function(){
-	$('#index').load('./insert.springboot');
-})
-
-$('#index #btnSearch').on('click', function(){
-	$('#index').load('./search.springboot');
-})
+crud.init();
 </script>
 </html>
