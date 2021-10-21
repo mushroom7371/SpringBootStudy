@@ -58,10 +58,13 @@ public class IndexController {
 	
 	@ExceptionHandler(Exception.class)
  	@RequestMapping(value = "/insertR.springboot", method = {RequestMethod.GET,RequestMethod.POST})
-	public void insertR(StudyVo vo, HttpServletRequest req, HttpServletRequest resp){
+	public ModelAndView insertR(StudyVo vo, HttpServletRequest req, HttpServletRequest resp){
+		ModelAndView mav = new ModelAndView();
 		
 		dao.insertStudyMember(vo);
+		mav.setViewName("search");
 
+		return mav;
 	}
 
 	

@@ -11,4 +11,5 @@ public interface StudyDao {
 
 	public List<StudyVo> selectStudyMember(StudyVo vo);
 	public int insertStudyMember(StudyVo vo);
+	
 }

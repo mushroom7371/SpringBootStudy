@@ -3,7 +3,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.sb.study.dao.StudyDao">
-	<select id = "selectStudyMember" parameterType = "StudyVo" resultType = "StudyVo">
+	<select id = "selectStudyMember" parameterType = "com.sb.study.vo.StudyVo" resultType = "com.sb.study.vo.StudyVo">
 		select
 				SNAME as sName,
 				SPHONE as sPhone,
@@ -12,7 +12,7 @@
 				SPRINGBOOTSTUDY
 	</select>
 	
-	<insert id = "insertStudyMember">
+	<insert id = "insertStudyMember" parameterType = "com.sb.study.vo.StudyVo">
 		insert into SPRINGBOOTSTUDY(SNAME, SPHONE, SAGE)
 		values(#{sName}, #{sPhone}, #{sAge})
 	</insert>
