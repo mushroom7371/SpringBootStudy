@@ -47,6 +47,18 @@ public class IndexController {
 		return mav;
 	}
 	
+	@RequestMapping(value = "/searchR.springboot", method = {RequestMethod.GET,RequestMethod.POST})
+	public ModelAndView searchR(){
+		ModelAndView mav = new ModelAndView();
+		
+		List<StudyVo> list = dao.selectStudyMember();
+		
+		mav.addObject("list", list);
+		mav.setViewName("search");
+		
+		return mav;
+	}
+	
 	@RequestMapping(value = "/insert.springboot", method = {RequestMethod.GET,RequestMethod.POST})
 	public ModelAndView insert(){
 		ModelAndView mav = new ModelAndView();

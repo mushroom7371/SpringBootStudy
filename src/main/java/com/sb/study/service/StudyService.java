@@ -14,8 +14,8 @@ public class StudyService {
 	@Autowired
 	StudyDao studyDao;
 	
-	public List<StudyVo> selectStudyMember(StudyVo vo) {
-		return studyDao.selectStudyMember(vo);
+	public List<StudyVo> selectStudyMember() {
+		return studyDao.selectStudyMember();
 	}
 	
 	public int insertStudyMember(StudyVo vo) {

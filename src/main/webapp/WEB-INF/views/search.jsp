@@ -19,18 +19,23 @@
 	<h2>조회 페이지입니다.</h2>
 	<div id='crud'>
 		<form name='frm_search' id='frm_search' method='post' action=''>
-			<label>이름</label>
-				<input type='text' name='sName' id='sName' readonly/>
-			<hr/>
-		
-			<label>전화 번호</label>
-				<input type='text' name='sPhone' id='sPhone' readonly/>
-			<hr/>
+			<div class='title'>
+				<span class='irum'>이름</span>
+				<span class='phoneNum'>전화번호</span>
+				<span class='nai'>나이</span>
+			</div>
 			
-			<label>나이</label>
-				<input type='text' name='sAge' id='sAge' readonly/>
-			<hr/>
+			<div class='items'>
+				<c:forEach var='vo' items="${list}">
+					<div class='item'>
+						<span class='irum'>${vo.sName }</span>
+						<span class='phoneNum'>${vo.sPhone }</span>
+						<span class='nai'>${vo.sAge }</span>
+					</div>
+				</c:forEach>
+			</div>
 			
+			<input type='button' id='btnSearchR' value='조회'/>
 			<input type='button' id='btnInsert' value='정보 저장페이지로'/>
 			<input type='button' id='btnIndex' value='초기화면으로'/>
 		</form>

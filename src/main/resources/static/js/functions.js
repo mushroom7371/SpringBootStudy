@@ -17,6 +17,10 @@ crud.init = function(){
 		$('#index').load('./search.springboot');
 	})
 	
+	$('#index #btnSearchR').on('click', function(){
+		$('#index').load('./searchR.springboot');
+	})
+	
 	
 	$('#crud #btnInsertR').on('click', function(){
 		
