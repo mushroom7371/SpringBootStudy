@@ -20,17 +20,17 @@
 	<div id='crud'>
 		<form name='frm_search' id='frm_search' method='post' action=''>
 			<div class='title'>
-				<span class='irum'>이름</span>
-				<span class='phoneNum'>전화번호</span>
-				<span class='nai'>나이</span>
+				<span class='sName'>이름</span>
+				<span class='sPhone'>전화번호</span>
+				<span class='sAge'>나이</span>
 			</div>
 			
 			<div class='items'>
 				<c:forEach var='vo' items="${list}">
-					<div class='item'>
-						<span class='irum'>${vo.sName }</span>
-						<span class='phoneNum'>${vo.sPhone }</span>
-						<span class='nai'>${vo.sAge }</span>
+					<div class='item' onclick="">
+						<span class='sName'>${vo.sName }</span>
+						<span class='sPhone'>${vo.sPhone }</span>
+						<span class='sAge'>${vo.sAge }</span>
 					</div>
 				</c:forEach>
 			</div>

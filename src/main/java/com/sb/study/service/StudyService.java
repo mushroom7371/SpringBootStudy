@@ -18,6 +18,10 @@ public class StudyService {
 		return studyDao.selectStudyMember();
 	}
 	
+	public StudyVo viewStudyMember(StudyVo vo) {
+		return studyDao.viewStudyMember(vo);
+	}
+	
 	public int insertStudyMember(StudyVo vo) {
 
 		return studyDao.insertStudyMember(vo);
