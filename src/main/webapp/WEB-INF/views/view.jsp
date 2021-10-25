@@ -33,6 +33,7 @@
 			
 			<input type='button' id='btnInsertR' value='정보 수정'/>
 			<input type='button' id='btnSearch' value='데이터 조회 페이지로'/>
+			<input type='button' id='btnDelete' value='데이터 삭제'/>
 			<input type='button' id='btnIndex' value='초기화면으로'/>
 
 		</form>

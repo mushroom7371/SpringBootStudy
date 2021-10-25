@@ -36,6 +36,22 @@ crud.init = function(){
 			}
 		})
 	})
+	
+	$('#index #btnDelete').on('click', function(){
+		
+		var frm = $('#frm_view')[0];
+		var param = $(frm).serialize();
+		
+		$.ajax({
+			type    : 'POST',
+			url     : './delete.springboot',
+			data    : param,
+			success : function(resp){
+				$('#index').load('./search.springboot');
+			}
+		})
+	})
+	
 }
 
 crud.view = function(sPhone){

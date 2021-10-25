@@ -89,6 +89,16 @@ public class IndexController {
 
 		return mav;
 	}
+	
+	@RequestMapping(value = "/delete.springboot", method = {RequestMethod.GET,RequestMethod.POST})
+	public ModelAndView delete(StudyVo vo, HttpServletRequest req, HttpServletRequest resp){
+		ModelAndView mav = new ModelAndView();
+		
+		dao.deleteStudyMember(vo.getsPhone());
+		mav.setViewName("search");
+		
+		return mav;
+	}
 
 	
 //	@Autowired

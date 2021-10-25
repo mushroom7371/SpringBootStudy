@@ -21,6 +21,10 @@
 				SPRINGBOOTSTUDY where sPhone = #{_parameter}
 	</select>
 	
+	<select id = "deleteStudyMember" parameterType = "String" resultType = "Integer">
+		delete
+	</select>
+	
 	<insert id = "insertStudyMember" parameterType = "com.sb.study.vo.StudyVo">
 		insert into SPRINGBOOTSTUDY(SNAME, SPHONE, SAGE)
 		values(#{sName}, #{sPhone}, #{sAge})
