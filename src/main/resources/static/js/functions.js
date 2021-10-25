@@ -37,3 +37,12 @@ crud.init = function(){
 		})
 	})
 }
+
+crud.view = function(sPhone){
+	var frm = $('#frm_search')[0];
+	frm.sPhone.value = sPhone;
+	var param = $(frm).serialize();
+	$.post('view.springboot', param, function(data){
+					$('#index').html(data);
+	})
+}

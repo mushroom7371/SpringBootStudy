@@ -12,13 +12,13 @@
 				SPRINGBOOTSTUDY
 	</select>
 	
-	<select id = "viewStudyMember" parameterType = "com.sb.study.vo.StudyVo" resultType = "com.sb.study.vo.StudyVo">
+	<select id = "viewStudyMember" parameterType = "String" resultType = "com.sb.study.vo.StudyVo">
 		select
 				SNAME as sName,
 				SPHONE as sPhone,
 				SAGE as sAge
 		from
-				SPRINGBOOTSTUDY where sPhone = #{sPhone}
+				SPRINGBOOTSTUDY where sPhone = #{_parameter}
 	</select>
 	
 	<insert id = "insertStudyMember" parameterType = "com.sb.study.vo.StudyVo">

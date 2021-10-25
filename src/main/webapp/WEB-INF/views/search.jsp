@@ -27,7 +27,7 @@
 			
 			<div class='items'>
 				<c:forEach var='vo' items="${list}">
-					<div class='item' onclick="">
+					<div class='item' onclick="crud.view('${vo.sPhone}')">
 						<span class='sName'>${vo.sName }</span>
 						<span class='sPhone'>${vo.sPhone }</span>
 						<span class='sAge'>${vo.sAge }</span>
@@ -38,6 +38,8 @@
 			<input type='button' id='btnSearchR' value='조회'/>
 			<input type='button' id='btnInsert' value='정보 저장페이지로'/>
 			<input type='button' id='btnIndex' value='초기화면으로'/>
+			
+			<input type='hidden' name='sPhone' value='${param.sPhone }'/>	
 		</form>
 	</div>
 <script>

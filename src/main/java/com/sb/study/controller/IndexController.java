@@ -62,7 +62,7 @@ public class IndexController {
 	@RequestMapping(value="/view.springboot", method= {RequestMethod.POST})
 	public ModelAndView view(StudyVo vo) {
 		ModelAndView mv = new ModelAndView();
-		StudyVo v = dao.viewStudyMember(vo);
+		StudyVo v = dao.viewStudyMember(vo.getsPhone());
 		
 		mv.addObject("list", v);
 		mv.setViewName("view");	

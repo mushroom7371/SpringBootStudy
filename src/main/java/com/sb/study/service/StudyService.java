@@ -18,8 +18,8 @@ public class StudyService {
 		return studyDao.selectStudyMember();
 	}
 	
-	public StudyVo viewStudyMember(StudyVo vo) {
-		return studyDao.viewStudyMember(vo);
+	public StudyVo viewStudyMember(String sPhone) {
+		return studyDao.viewStudyMember(sPhone);
 	}
 	
 	public int insertStudyMember(StudyVo vo) {

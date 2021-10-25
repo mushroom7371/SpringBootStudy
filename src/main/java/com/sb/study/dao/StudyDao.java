@@ -10,7 +10,7 @@ import com.sb.study.vo.StudyVo;
 public interface StudyDao {
 
 	public List<StudyVo> selectStudyMember();
-	public StudyVo viewStudyMember(StudyVo vo);
+	public StudyVo viewStudyMember(String sPhone);
 	public int insertStudyMember(StudyVo vo);
 	
 }
