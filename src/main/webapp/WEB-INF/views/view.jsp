@@ -24,14 +24,14 @@
 			<hr/>
 		
 			<label>전화 번호</label>
-				<input type='text' name='sPhone' id='sPhone' value='${list.sPhone }'/>
+				<input type='text' name='sPhone' id='sPhone' value='${list.sPhone }' readonly/>
 			<hr/>
 			
 			<label>나이</label>
 				<input type='text' name='sAge' id='sAge' value='${list.sAge }'/>
 			<hr/>
 			
-			<input type='button' id='btnInsertR' value='정보 수정'/>
+			<input type='button' id='btnModify' value='정보 수정'/>
 			<input type='button' id='btnSearch' value='데이터 조회 페이지로'/>
 			<input type='button' id='btnDelete' value='데이터 삭제'/>
 			<input type='button' id='btnIndex' value='초기화면으로'/>

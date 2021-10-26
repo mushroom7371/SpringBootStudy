@@ -37,6 +37,21 @@ crud.init = function(){
 		})
 	})
 	
+	$('#crud #btnModify').on('click', function(){
+		
+		var frm = $('#frm_view')[0];
+		var param = $(frm).serialize();
+		
+		$.ajax({
+			type    : 'POST',
+			url     : './modify.springboot',
+			data    : param,
+			success : function(resp){
+				$('#index').load('./search.springboot');
+			}
+		})
+	})
+	
 	$('#index #btnDelete').on('click', function(){
 		
 		var frm = $('#frm_view')[0];

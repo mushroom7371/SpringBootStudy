@@ -90,6 +90,16 @@ public class IndexController {
 		return mav;
 	}
 	
+	@RequestMapping(value = "/modify.springboot", method = {RequestMethod.GET,RequestMethod.POST})
+	public ModelAndView modify(StudyVo vo, HttpServletRequest req, HttpServletRequest resp){
+		ModelAndView mav = new ModelAndView();
+		
+		dao.modifyStudyMember(vo);
+		mav.setViewName("search");
+		
+		return mav;
+	}
+	
 	@RequestMapping(value = "/delete.springboot", method = {RequestMethod.GET,RequestMethod.POST})
 	public ModelAndView delete(StudyVo vo, HttpServletRequest req, HttpServletRequest resp){
 		ModelAndView mav = new ModelAndView();

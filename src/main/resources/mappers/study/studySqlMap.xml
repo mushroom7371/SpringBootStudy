@@ -21,12 +21,17 @@
 				SPRINGBOOTSTUDY where sPhone = #{_parameter}
 	</select>
 	
-	<select id = "deleteStudyMember" parameterType = "String">
+	<delete id = "deleteStudyMember" parameterType = "String">
 		delete from SPRINGBOOTSTUDY where sPhone = #{sPhone}
-	</select>
+	</delete>
 	
 	<insert id = "insertStudyMember" parameterType = "com.sb.study.vo.StudyVo">
 		insert into SPRINGBOOTSTUDY(SNAME, SPHONE, SAGE)
 		values(#{sName}, #{sPhone}, #{sAge})
 	</insert>
+	
+	<update id = "modifyStudyMember" parameterType = "com.sb.study.vo.StudyVo">
+		update SPRINGBOOTSTUDY set sName = #{sName}, sAge = #{sAge}
+		where sPhone = #{sPhone}
+	</update>
 </mapper>

@@ -30,4 +30,8 @@ public class StudyService {
 
 		return studyDao.insertStudyMember(vo);
 	}
+	
+	public void modifyStudyMember(StudyVo vo) {
+		studyDao.modifyStudyMember(vo);
+	}
 }
