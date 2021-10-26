@@ -21,8 +21,8 @@
 				SPRINGBOOTSTUDY where sPhone = #{_parameter}
 	</select>
 	
-	<select id = "deleteStudyMember" parameterType = "String" resultType = "Integer">
-		delete
+	<select id = "deleteStudyMember" parameterType = "String">
+		delete from SPRINGBOOTSTUDY where sPhone = #{sPhone}
 	</select>
 	
 	<insert id = "insertStudyMember" parameterType = "com.sb.study.vo.StudyVo">

@@ -22,8 +22,8 @@ public class StudyService {
 		return studyDao.viewStudyMember(sPhone);
 	}
 	
-	public int deleteStudyMember(String sPhone) {
-		return studyDao.deleteStudyMember(sPhone);
+	public void deleteStudyMember(String sPhone) {
+		studyDao.deleteStudyMember(sPhone);
 	}
 	
 	public int insertStudyMember(StudyVo vo) {

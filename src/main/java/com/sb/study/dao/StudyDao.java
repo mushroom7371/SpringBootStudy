@@ -12,6 +12,6 @@ public interface StudyDao {
 	public List<StudyVo> selectStudyMember();
 	public StudyVo viewStudyMember(String sPhone);
 	public int insertStudyMember(StudyVo vo);
-	public int deleteStudyMember(String sPhone);
+	public void deleteStudyMember(String sPhone);
 	
 }
