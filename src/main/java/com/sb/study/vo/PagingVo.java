@@ -20,13 +20,13 @@ public class PagingVo {
 	// 제일 마지막 페이지 계산
 	public void calcLastPage(int total, int cntPerPage) {
 		setLastPage((int) Math.ceil((double)total / (double)cntPerPage));
-		//총갯수를 페이지당 글 갯수로 나눈 실수값을 ceil()을 통하여 실수값보다 큰 수중 가장 작은 숫자를 정수로 표현함. 2.3 => 3이 되는셈
+		//총갯수를 페이지당 글 갯수로 나눈 실수값을 ceil()을 통하여 실수값보다 큰 수중 가장 작은 정수를 표현함. 2.3 => 3이 되는셈
 	}
 	// 시작, 끝 페이지 계산
 	public void calcStartEndPage(int nowPage, int cntPage) {
 		setEndPage(((int)Math.ceil((double)nowPage / (double)cntPage)) * cntPage);
 		//현재 페이지를 5개로 나눈 수보다 1큰 정수에 5를 곱한다.
-		//가령, 현재 페이지가 8일 경우는 8/5인 1.3이므로 2가 되며 5를 곱한 10이 된다.
+		//가령, 현재 페이지가 8일 경우는 8/5인 1.6이므로 ceil()을 통하여 2가 되며 5를 곱한 10이 끝 페이지가 된다.
 		//이를 통하여 현재 페이지인 8페이지를 기준으로 -2~2의 페이지를 표시해주는것이며 6-7-8-9-10 페이지가 목록에 표시되는셈
 		if (getLastPage() < getEndPage()) {	//마지막 페이지가 끝 페이지보다 작다면 표시되는 페이지는 마지막 페이지가 됨
 			setEndPage(getLastPage());
