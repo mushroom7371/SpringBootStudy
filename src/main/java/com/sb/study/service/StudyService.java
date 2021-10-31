@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sb.study.dao.StudyDao;
+import com.sb.study.vo.PagingVo;
 import com.sb.study.vo.StudyVo;
 
 @Service
@@ -16,6 +17,14 @@ public class StudyService {
 	
 	public List<StudyVo> selectStudyMember() {
 		return studyDao.selectStudyMember();
+	}
+	
+	public int countBoard() {
+		return studyDao.countBoard();
+	}
+	
+	public List<StudyVo> selectPaging(PagingVo vo) {
+		return studyDao.selectPaging(vo);
 	}
 	
 	public StudyVo viewStudyMember(String sPhone) {

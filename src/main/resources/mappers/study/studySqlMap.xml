@@ -12,6 +12,25 @@
 				SPRINGBOOTSTUDY
 	</select>
 	
+	<!-- 총 게시글 갯수 출력 -->
+	<select id="countBoard" resultType="int">
+		SELECT COUNT(*) FROM BOARD
+	</select>
+	
+	<!-- 페이징 처리 후 게시글 조회 -->
+	<select id="selectPaging" resultType="com.sb.study.vo.StudyVo">
+		SELECT * 
+			FROM (
+				SELECT ROWNUM RN, A.* 
+					FROM (
+							SELECT * 
+							FROM BOARD 
+							ORDER BY SEQ DESC 
+							) A
+					)
+		WHERE RN BETWEEN #{start} AND #{end}
+	</select>
+	
 	<select id = "viewStudyMember" parameterType = "String" resultType = "com.sb.study.vo.StudyVo">
 		select
 				SNAME as sName,
