@@ -14,7 +14,7 @@
 	
 	<!-- 총 게시글 갯수 출력 -->
 	<select id="countBoard" resultType="int">
-		SELECT COUNT(*) FROM BOARD
+		SELECT COUNT(*) FROM SPRINGBOOTSTUDY
 	</select>
 	
 	<!-- 페이징 처리 후 게시글 조회 -->
@@ -24,7 +24,7 @@
 				SELECT ROWNUM RN, A.* 
 					FROM (
 							SELECT * 
-							FROM BOARD 
+							FROM SPRINGBOOTSTUDY 
 							ORDER BY SEQ DESC 
 							) A
 					)
