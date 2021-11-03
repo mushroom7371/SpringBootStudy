@@ -5,9 +5,7 @@
 <mapper namespace="com.sb.study.dao.StudyDao">
 	<select id = "selectStudyMember" resultType = "com.sb.study.vo.StudyVo">
 		select
-				SNAME as sName,
-				SPHONE as sPhone,
-				SAGE as sAge
+				*
 		from
 				SPRINGBOOTSTUDY
 	</select>

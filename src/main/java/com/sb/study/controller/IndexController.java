@@ -12,11 +12,13 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
+import com.sb.study.vo.PagingVo;
 import com.sb.study.vo.StudyVo;
 import com.sb.study.dao.StudyDao;
 import com.sb.study.service.StudyService;
@@ -48,12 +50,26 @@ public class IndexController {
 	}
 	
 	@RequestMapping(value = "/searchR.springboot", method = {RequestMethod.GET,RequestMethod.POST})
-	public ModelAndView searchR(){
-		ModelAndView mav = new ModelAndView();
+	public ModelAndView searchR(PagingVo vo, ModelAndView mav
+			, @RequestParam(value="nowPage", required=false)String nowPage
+			, @RequestParam(value="cntPerPage", required=false)String cntPerPage){
 		
-		List<StudyVo> list = dao.selectStudyMember();
+		int total = dao.countBoard();
+		if (nowPage == null && cntPerPage == null) {
+			nowPage = "1";
+			cntPerPage = "5";
+		} else if (nowPage == null) {
+			nowPage = "1";
+		} else if (cntPerPage == null) { 
+			cntPerPage = "5";
+		}
 		
-		mav.addObject("list", list);
+		vo = new PagingVo(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+		
+		System.out.println(vo.toString());
+		
+		mav.addObject("vo", vo);
+		mav.addObject("viewAll", dao.selectPaging(vo));
 		mav.setViewName("search");
 		
 		return mav;

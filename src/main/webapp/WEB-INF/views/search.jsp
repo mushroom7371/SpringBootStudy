@@ -20,14 +20,17 @@
 	<div id='crud'>
 		<form name='frm_search' id='frm_search' method='post' action=''>
 			<div class='title'>
+				<span class='seq'>번호</span>
 				<span class='sName'>이름</span>
 				<span class='sPhone'>전화번호</span>
 				<span class='sAge'>나이</span>
 			</div>
+		<hr>
 			
 			<div class='items'>
-				<c:forEach var='vo' items="${list}">
+				<c:forEach var='vo' items="${viewAll}">
 					<div class='item' onclick="crud.view('${vo.sPhone}')">
+						<span class='seq'>${vo.seq }</span>
 						<span class='sName'>${vo.sName }</span>
 						<span class='sPhone'>${vo.sPhone }</span>
 						<span class='sAge'>${vo.sAge }</span>
@@ -35,6 +38,14 @@
 				</c:forEach>
 			</div>
 			
+			<hr>
+
+			<c:forEach var='p' begin='${paging.startPage }' end='${paging.endPage }'>
+				<input type='button' value='${p }' onclick=''/>
+			</c:forEach>
+			
+			<hr>
+
 			<input type='button' id='btnSearchR' value='조회'/>
 			<input type='button' id='btnInsert' value='정보 저장페이지로'/>
 			<input type='button' id='btnIndex' value='초기화면으로'/>

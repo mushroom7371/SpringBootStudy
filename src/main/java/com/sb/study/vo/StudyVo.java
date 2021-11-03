@@ -4,7 +4,14 @@ public class StudyVo {
 	private String sName;
 	private String sPhone;
 	private String sAge;
+	private int seq;
 	
+	public int getSeq() {
+		return seq;
+	}
+	public void setSeq(int seq) {
+		this.seq = seq;
+	}
 	public String getsName() {
 		return sName;
 	}

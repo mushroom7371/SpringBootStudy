@@ -91,4 +91,11 @@ public class PagingVo {
 		this.end = end;
 	}
 	
+	@Override
+	public String toString() {
+		return "PagingVO [nowPage=" + nowPage + ", startPage=" + startPage + ", endPage=" + endPage + ", total=" + total
+				+ ", cntPerPage=" + cntPerPage + ", lastPage=" + lastPage + ", start=" + start + ", end=" + end
+				+ ", cntPage=" + cntPage + "]";
+	}
+	
 }
