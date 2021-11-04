@@ -39,11 +39,23 @@
 			</div>
 			
 			<hr>
-
-			<c:forEach var='p' begin='${paging.startPage }' end='${paging.endPage }'>
-				<input type='button' value='${p }' onclick=''/>
-			</c:forEach>
 			
+			<div id='btn_zone'>
+				<c:if test="${paging.startPage>1 }">
+					<input type='button' value='맨처음' onclick='crud.move(1)'/>
+					<input type='button' value='이전' onclick='crud.move(${paging.startPage-1})'/>
+				</c:if>
+				
+				<c:forEach var='p' begin='${paging.startPage }' end='${paging.endPage }'>
+					<input type='button' value='${p }' onclick='crud.move(${p })'/>
+				</c:forEach>
+				
+				<c:if test="${paging.endPage<paging.lastPage }">
+					<input type='button' value='다음' onclick='crud.move(${paging.endPage+1 })'/>
+					<input type='button' value='맨끝' onclick='crud.move(${paging.lastPage })'/>
+				</c:if>
+			</div>
+
 			<hr>
 
 			<input type='button' id='btnSearchR' value='조회'/>
@@ -51,6 +63,7 @@
 			<input type='button' id='btnIndex' value='초기화면으로'/>
 			
 			<input type='hidden' name='sPhone' value='${param.sPhone }'/>	
+			<input type='hidden' name='nowPage' value='${(empty param.nowPage)? 1 : param.nowPage }'/>
 		</form>
 	</div>
 <script>

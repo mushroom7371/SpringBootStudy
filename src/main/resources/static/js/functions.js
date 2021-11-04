@@ -77,3 +77,11 @@ crud.view = function(sPhone){
 					$('#index').html(data);
 	})
 }
+
+crud.move = function(nowPage){
+	var frm = $('#frm_search')[0];
+	frm.nowPage.value = nowPage;
+	var param = $(frm).serialize();
+	
+	$('#index').load('searchR.springboot', param);
+}

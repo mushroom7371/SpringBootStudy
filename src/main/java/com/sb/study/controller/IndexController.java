@@ -68,7 +68,7 @@ public class IndexController {
 		
 		System.out.println(vo.toString());
 		
-		mav.addObject("vo", vo);
+		mav.addObject("paging", vo);
 		mav.addObject("viewAll", dao.selectPaging(vo));
 		mav.setViewName("search");
 		
