@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.sb.study.dao.StudyDao;
 import com.sb.study.vo.PagingVo;
+import com.sb.study.vo.StudyAttVo;
 import com.sb.study.vo.StudyVo;
 
 @Service
@@ -14,6 +15,10 @@ public class StudyService {
 	
 	@Autowired
 	StudyDao studyDao;
+	
+	public List<StudyAttVo> fileUpload(){
+		return studyDao.fileUpload();
+	}
 	
 	public List<StudyVo> selectStudyMember() {
 		return studyDao.selectStudyMember();
