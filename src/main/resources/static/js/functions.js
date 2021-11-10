@@ -27,12 +27,23 @@ crud.init = function(){
 		var frm = $('#frm_insert')[0];
 		var param = $(frm).serialize();
 		
+		var frm2 = $('#frm_upload')[0];
+		var data = new FormData(frm2);
+		
 		$.ajax({
-			type    : 'POST',
-			url     : './insertR.springboot',
-			data    : param,
+			type : 'POST',
+			url : 'fup.springboot',
+			enctype : 'multipart/form-data',
+			data : data,
+			contentType : false,	
+			processData : false,	
 			success : function(resp){
-				$('#index').load('./search.springboot');
+				$.post('./insertR.springboot', param, function(){
+					$('#index').load('./search.springboot');
+				})
+			},
+			error : function(xhr, resp, status){
+				alert(resp + "," + status);
 			}
 		})
 	})

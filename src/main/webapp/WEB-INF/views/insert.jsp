@@ -35,6 +35,15 @@
 			<input type='button' id='btnSearch' value='데이터 조회 페이지로'/>
 			<input type='button' id='btnIndex' value='초기화면으로'/>
 		</form>
+		
+		<form name='frm_upload' id='frm_upload' method='post'>
+			<label>파일첨부</label>
+			<input type='file' name='attfile' id='attfile' multiple/>
+			
+			<div id='image_preview'>
+			<div id='attzone'></div>
+		</div>
+	</form>
 	</div>
 	
 <script>

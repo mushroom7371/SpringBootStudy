@@ -1,5 +1,7 @@
 package com.sb.study.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -7,6 +9,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,10 +38,13 @@ import com.sb.study.service.StudyService;
 @Controller
 public class IndexController {
 	
-	final static String saveDir = "C:\\eclipse\\workspace\\SpringBootStudy\\BootStudy\\src\\main\\webapp\\upload\\";
-	
 	@Autowired
 	StudyDao dao;
+	
+	@Autowired
+	FileUploadController fileUpload;
+	
+	List<StudyAttVo> attList;
 	
 	//매핑을 통하여 url이 /로 들어오면 실행되는 메서드
 	@RequestMapping(value = "/", method = RequestMethod.GET)
@@ -134,49 +140,20 @@ public class IndexController {
 		return mav;
 	}
 	
-public List<StudyAttVo> upload(HttpServletRequest req) {
-		
-		List<StudyAttVo> attList = null;
-		
+	@RequestMapping(value="/fup.springboot", method= RequestMethod.POST)
+	public void  upload(HttpServletRequest req, HttpServletResponse resp){
+		attList = fileUpload.upload(req);
+		System.out.println(attList.size());
+		PrintWriter pw;
 		try {
-			req.setCharacterEncoding("utf-8");
-			
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddhhmmssSS");
-			
-			String contentType = req.getContentType();
-	
-			if(contentType.toLowerCase().startsWith("multipart/")) {
-				
-				attList = new ArrayList<StudyAttVo>();
-			
-				Collection<Part> parts = req.getParts();
-				for(Part p : parts) {
-					if( p.getHeader("Content-Disposition").contains("filename=")) { // file tag
-						String fileName = p.getSubmittedFileName();
-						StudyAttVo attVo = new StudyAttVo();
-						
-						String date = sdf.format(new Date());
-						
-						System.out.println("p에 담기는가?" + p.getSize());
-						
-						if(p.getSize()>0) {
-							p.write(saveDir + date + "-" + fileName);
-							p.delete();
-	
-							attVo.setSysAtt(date + "-" + fileName);
-							attVo.setOriAtt(fileName);
-							attList.add(attVo);
-						}
-					}
-				}
-			}
-		}catch(Exception ex) {
-			ex.printStackTrace();
+			pw = resp.getWriter();
+			pw.print("ok...");
+		}catch(IOException e) {
+			e.printStackTrace();
 		}
-		return attList;
 	}
-
 	
+
 //	@Autowired
 //	StudyService StudyService; 
 //	
