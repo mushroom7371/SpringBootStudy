@@ -2,7 +2,6 @@ package com.sb.study.vo;
 
 public class StudyAttVo {
 	int serial;
-	int pSerial;
 	String oriAtt = "";
 	String sysAtt = "";
 	
@@ -12,12 +11,7 @@ public class StudyAttVo {
 	public void setSerial(int serial) {
 		this.serial = serial;
 	}
-	public int getpSerial() {
-		return pSerial;
-	}
-	public void setpSerial(int pSerial) {
-		this.pSerial = pSerial;
-	}
+	
 	public String getOriAtt() {
 		return oriAtt;
 	}

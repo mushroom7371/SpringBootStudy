@@ -143,7 +143,8 @@ public class IndexController {
 	@RequestMapping(value="/fup.springboot", method= RequestMethod.POST)
 	public void  upload(HttpServletRequest req, HttpServletResponse resp){
 		attList = fileUpload.upload(req);
-		System.out.println(attList.size());
+//		dao.fileUpload(attList);
+
 		PrintWriter pw;
 		try {
 			pw = resp.getWriter();

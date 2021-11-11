@@ -18,7 +18,6 @@ public interface StudyDao {
 	public void deleteStudyMember(String sPhone);
 	public List<StudyVo> selectPaging(PagingVo vo);
 	public int countBoard();
-	public List<StudyAttVo> fileUpload();
-	
+	public List<StudyAttVo> fileUpload(List<StudyAttVo> vo);
 	
 }

@@ -16,8 +16,8 @@ public class StudyService {
 	@Autowired
 	StudyDao studyDao;
 	
-	public List<StudyAttVo> fileUpload(){
-		return studyDao.fileUpload();
+	public List<StudyAttVo> fileUpload(List<StudyAttVo> vo){
+		return studyDao.fileUpload(vo);
 	}
 	
 	public List<StudyVo> selectStudyMember() {
