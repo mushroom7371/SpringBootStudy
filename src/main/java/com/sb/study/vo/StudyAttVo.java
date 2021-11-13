@@ -11,7 +11,6 @@ public class StudyAttVo {
 	public void setSerial(int serial) {
 		this.serial = serial;
 	}
-	
 	public String getOriAtt() {
 		return oriAtt;
 	}
@@ -24,4 +23,5 @@ public class StudyAttVo {
 	public void setSysAtt(String sysAtt) {
 		this.sysAtt = sysAtt;
 	}
+	
 }

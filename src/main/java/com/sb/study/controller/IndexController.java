@@ -143,7 +143,8 @@ public class IndexController {
 	@RequestMapping(value="/fup.springboot", method= RequestMethod.POST)
 	public void  upload(HttpServletRequest req, HttpServletResponse resp){
 		attList = fileUpload.upload(req);
-//		dao.fileUpload(attList);
+		System.out.println(attList.size());
+		dao.fileUpload(attList);
 
 		PrintWriter pw;
 		try {
@@ -152,6 +153,7 @@ public class IndexController {
 		}catch(IOException e) {
 			e.printStackTrace();
 		}
+		
 	}
 	
 
