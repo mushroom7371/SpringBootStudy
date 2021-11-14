@@ -38,6 +38,7 @@ import com.sb.study.service.StudyService;
 @Controller
 public class IndexController {
 	
+	//각 상황의 타입에 맞는 loC컨테이너 안에 존재하는 Bean을 자동으로 주입함. new 로 객체를 만들 필요가 없다.
 	@Autowired
 	StudyDao dao;
 	
@@ -56,9 +57,12 @@ public class IndexController {
 	
 	@RequestMapping(value = "/search.springboot", method = {RequestMethod.GET,RequestMethod.POST})
 	public ModelAndView search(){
+		//Model은 데이터만 저장하지만 ModelAndView는 데이터와 이동하고자 하는 View Page를 같이 저장한다.
 		ModelAndView mav = new ModelAndView();
 		
 		mav.setViewName("search");
+		//참조변수 mav는 ModelAndView 타입의 인스턴스를 가리키고, 해당 인스턴스의 setViewName()을 통하여 View의 이름을 지정한다.
+		//데이터를 보낼때는 addObject()를 통하여 '변수이름'과 '해당 데이터 값'을 설정할 수 있다.
 		
 		return mav;
 	}
@@ -82,6 +86,7 @@ public class IndexController {
 		
 		System.out.println(vo.toString());
 		
+		//데이터를 내보내기 위해 addObject()메서드를 이용
 		mav.addObject("paging", vo);
 		mav.addObject("viewAll", dao.selectPaging(vo));
 		mav.setViewName("search");

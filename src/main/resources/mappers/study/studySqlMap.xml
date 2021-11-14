@@ -2,6 +2,8 @@
 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
+<!-- namespce에는 해당 인터페이스가 담긴 경로 전체를 작성해야 된다.
+	 parameterType, resultType 또한 마찬가지.-->
 <mapper namespace="com.sb.study.dao.StudyDao">
 	<insert id = "fileUpload" parameterType="java.util.List">
 		INSERT INTO STUDYATT(serial, oriAtt, sysAtt)

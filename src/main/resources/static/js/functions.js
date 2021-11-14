@@ -2,6 +2,8 @@
  * 테스트용
  */
 
+//static resource로 클라이언트로 부터 요청이 들어왔을 때 요청에 대한 리소스가 이미 만들어져 있다.
+//빈 객체를 생성한다. 이 이후에 function 선언을 통하여 crud.init 등으로 function에 접근 가능하다.
 var crud = {};
 
 crud.init = function(){
@@ -11,6 +13,7 @@ crud.init = function(){
 	
 	$('#index #btnInsert').on('click', function(){
 		$('#index').load('./insert.springboot');
+		//index 영역의 btnInsert 버튼이 클릭되면 함수 실행, index 영역에 ./insert.springboot url을 호출하고 난뒤의 view를 load 한다.
 	})
 
 	$('#index #btnSearch').on('click', function(){
@@ -30,6 +33,7 @@ crud.init = function(){
 		var frm2 = $('#frm_upload')[0];
 		var data = new FormData(frm2);
 		
+		//비동기 처리
 		$.ajax({
 			type : 'POST',
 			url : 'fup.springboot',
