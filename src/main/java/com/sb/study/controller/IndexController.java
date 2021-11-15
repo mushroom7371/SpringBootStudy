@@ -148,15 +148,23 @@ public class IndexController {
 	@RequestMapping(value="/fup.springboot", method= RequestMethod.POST)
 	public void  upload(HttpServletRequest req, HttpServletResponse resp){
 		attList = fileUpload.upload(req);
-		System.out.println(attList.size());
-		dao.fileUpload(attList);
+		
+		if(attList.size() != 0) {	//첨부파일이 있으면 파일 업로드, 없으면 아무것도 안하고 넘어간다.
+			dao.fileUpload(attList);			
 
-		PrintWriter pw;
-		try {
-			pw = resp.getWriter();
-			pw.print("ok...");
-		}catch(IOException e) {
-			e.printStackTrace();
+			PrintWriter pw;
+			//Stream 클래스는 입,출력을 쌍으로 제공하고있으나 PrintStream, PrintWriter 클래스는 출력만 제공함.
+			//System.out 에서 사용하는 print(), println() 메서드 등이 PinrtStream 이다.
+			//클라이언트로 부터 servlet으로 요청이 들어오면 요청 파라메터가 같이 오게되며 이를 req.getParameter("")등으로 파악함.
+			//요청이 왔으므로 클라이언트로 응답을 하게 되는데 통상적으로 웹프로그래밍에서는 응답을 텍스트로 하게된다. 이때 스트림이라는 개념을 활용함
+			//응답 스트림에 텍스트를 기록하는것이 가능한데 이때 .getWriter()등을 호출한다.
+			
+			try {
+				pw = resp.getWriter();
+				pw.print("ok...");
+			}catch(IOException e) {
+				e.printStackTrace();
+			}
 		}
 		
 	}
